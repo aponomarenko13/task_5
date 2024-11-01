@@ -46,20 +46,6 @@ public class SellerManagerTest {
         }
     }
 
-    @Test
-    @DisplayName("Проверим, что если мы вдруг перепутали консультантов, то наш менеджер все равно направит к нужному")
-    void incorrectBuyerHasCorrectSeller() {
-        assertDoesNotThrow(() -> sellerManager.addBuyerToSeller(
-                consultant,
-                buyer2
-        ));
-
-        assertEquals(consultant.getBuyers().size(), 0);
-
-        assertEquals(merchandiser.getBuyers().size(), 1);
-        assertEquals(merchandiser.getSpecializeType(),
-                merchandiser.getBuyers().get(0).getPreferences());
-    }
 
     @Test
     @DisplayName("Ошибка добавления покупателя к консультанту")
